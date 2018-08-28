@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
+import '../products.json';
+import { connect } from 'react-redux';
+//import { addToCart } from '../modules/actions';
 
-class ProductList extends Component {
-  render() {
-    return(
-      <ul>
-        <li>
-          <p></p>
-        </li>
-        <li>
-          <p></p>
-        </li>
-        <li>
-          <p></p>
-        </li>
-      </ul>
-    )
-  }
-}
+const ProductList = ({list}) => (
+  <ul>
+    {list.map(product => (
+      <li key={product.id}>
+        <p> {product.title} | {product.price} | {product.inventory}
+        </p>
+      </li>
+    ))}
+  </ul>
+);
 
-export default ProductList;
+
+export default connect (
+  ({products}) => ({
+    list: Object.values(products)
+  }))(ProductList);
