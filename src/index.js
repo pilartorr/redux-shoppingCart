@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import products from './products.json';
 
 // this is a mock Reducer
-const appReducer = state => state;
+import {appReducer} from './modules/reducers';
 
 const store = createStore(appReducer, {
   products: products.reduce((products, product) => ({

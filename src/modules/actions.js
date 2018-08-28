@@ -1,6 +1,6 @@
-import React from 'react';
-
-export const addToCart = (product) => ({
-  type: 'ADD_TO_CART',
-  product
-})
+export function addToCart(product) {
+  return {
+    type: 'ADD_TO_CART',
+    product
+  }
+}
