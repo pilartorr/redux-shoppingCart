@@ -3,7 +3,9 @@
 export function appReducer(state = {}, action) {
 
   const {products, cart} = state;
-  const {product} = action;
+
+// this imports the arguments from the actions
+  const {product, productFromCart} = action || {};
   // let quantity;
 
   switch (action.type) {
@@ -39,6 +41,11 @@ export function appReducer(state = {}, action) {
           }
       }
     }
+
+    case 'REMOVE_ONE_FROM_CART':
+
+
+
     default:
       return state;
   }

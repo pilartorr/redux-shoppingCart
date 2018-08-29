@@ -8,6 +8,7 @@ class Shop extends Component {
     return (
       <Fragment>
         <ProductList />
+        <ShoppingCart />
       </Fragment>
     );
   }
