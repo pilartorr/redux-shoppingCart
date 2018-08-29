@@ -4,11 +4,15 @@ export function appReducer(state = {}, action) {
 
   const {products, cart} = state;
   const {product} = action;
+  // let quantity;
 
   switch (action.type) {
     case 'ADD_TO_CART':
 
     const {id, title, price, inventory} = product;
+    const quantity = cart[id] ? cart[id].quantity : 0 ;
+
+    if(inventory <= 0) return state;
 
     return {
       ...state,
@@ -21,6 +25,17 @@ export function appReducer(state = {}, action) {
             title: title,
             price: price,
             inventory: inventory - 1
+          }
+      },
+
+      cart: {
+          ...cart,
+
+          [id]: {
+            id: id,
+            title: title,
+            price: price,
+            quantity: quantity + 1
           }
       }
     }
