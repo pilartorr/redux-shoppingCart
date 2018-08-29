@@ -13,7 +13,8 @@ const ShoppingCart = ({items, removeOneFromCart, removeAllFromCart}) => (
           <p>{cart.title} | ${cart.price} | x{cart.quantity}</p>
           <button
             onClick={() => removeOneFromCart(cart)}
-          >Remove One</button>
+            disabled={cart.quantity ? 0 : cart.quantity}
+          >{cart.quantity ? 'Remove from cart' : 'No items in cart'}</button>
           <button
             onClick={() => removeAllFromCart(cart)}
           >Remove All</button>

@@ -1,20 +1,20 @@
-export function addToCart() {
+export function addToCart(product) {
   return {
     type: 'ADD_TO_CART',
-    
+    product
   }
 }
 
-export function removeOneFromCart(productFromCart) {
+export function removeOneFromCart(product) {
   return {
     type: 'REMOVE_ONE_FROM_CART',
-    productFromCart
+    product
   }
 }
 
-export function removeAllFromCart(productFromCart) {
+export function removeAllFromCart(product) {
   return {
     type: 'REMOVE_ALL_FROM_CART',
-    productFromCart
+    product
   }
 }
