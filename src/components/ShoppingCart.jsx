@@ -25,7 +25,6 @@ const ShoppingCart = ({items, removeOneFromCart, removeAllFromCart}) => (
   </Fragment>
 );
 
-
 export default connect (
   ({cart}) => ({
     items: Object.values(cart)
