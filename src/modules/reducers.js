@@ -4,7 +4,6 @@ function deleteFromCart(id, cart){
   return newCart;
 };
 
-
 // function to export the states and the actions of the differents item of the list
 export function appReducer(state = {}, action) {
 
@@ -107,7 +106,18 @@ export function appReducer(state = {}, action) {
             cart: deleteFromCart(id, cart)
           }
 
+    case 'CHECKOUT':
+
+          return {
+            ...state,
+
+            cart: deleteFromCart()
+          }
+
+
     default:
-      return state;
+      return state
+
+
   }
 }

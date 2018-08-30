@@ -18,3 +18,9 @@ export function removeAllFromCart(product) {
     product
   }
 }
+
+export function checkout() {
+  return {
+    type: 'CHECKOUT',
+  }
+}
