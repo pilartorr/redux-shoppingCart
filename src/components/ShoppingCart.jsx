@@ -5,36 +5,31 @@ import { removeOneFromCart } from '../modules/actions';
 import { removeAllFromCart } from '../modules/actions';
 import { checkout } from '../modules/actions';
 
-// function checkout(items){
-//   items.map(function(cart){
-//     return items;
-//   }
-// )};
-
-
 const ShoppingCart = ({items, removeOneFromCart, removeAllFromCart, checkout}) => (
   <Fragment>
-    <ul>
-      {items.map(cart => (
-        <li key={cart.id}>
-          <p>{cart.title} | ${cart.price} | x{cart.quantity}</p>
-          <button
-            onClick={() => removeOneFromCart(cart)}
-            disabled={cart.quantity ? 0 : cart.quantity}
-          >{cart.quantity ? 'Remove from cart' : 'No items in cart'}</button>
-          <button
-            onClick={() => removeAllFromCart(cart)}
-          >Remove All</button>
-        </li>
-      ))}
-    </ul>
-    <p>Your total is: ${items.reduce((sum, product) => sum + product.price * product.quantity, 0)}</p>
-    <button onClick={checkout}>Checkout</button>
+      <div className="m-auto">
+        <h1 className="h1 text-center mt-5">SHOPPING CART</h1>
+        <ul className="m-auto">
+          {items.map(cart => (
+            <li key={cart.id} style={{"listStyleType": "none"}} className="mt-5">
+              <h2 className="h2 text-center">{cart.title} | ${cart.price} | x{cart.quantity}</h2>
+              <button className ="btn btn-danger btn-lg my-3 mr-3 col-md-2 offset-md-5"
+                onClick={() => removeOneFromCart(cart)}
+                disabled={cart.quantity ? 0 : cart.quantity}
+              >{cart.quantity ? 'Remove one' : 'No items in cart'}</button>
+              <button className ="btn btn-danger btn-lg my-3 col-md-2 offset-md-5"
+                onClick={() => removeAllFromCart(cart)}
+              >Remove All</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="m-auto">
+        <h2 className="h2 text-center">Your total is: ${items.reduce((sum, product) => sum + product.price * product.quantity, 0)}</h2>
+        <button className="btn btn-success btn-lg col-md-2 offset-md-5" onClick={checkout}>Checkout</button>
+      </div>
 
     {/* <button onClick={items.map(cart => checkout(cart))}>Checkout</button> */}
-
-
-
   </Fragment>
 );
 

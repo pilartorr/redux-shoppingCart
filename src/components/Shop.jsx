@@ -7,8 +7,10 @@ class Shop extends Component {
   render(){
     return (
       <Fragment>
-        <ProductList />
-        <ShoppingCart />
+        <div className="container w-100">
+          <ProductList  />
+          <ShoppingCart />
+        </div>
       </Fragment>
     );
   }
